@@ -1,5 +1,6 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
+import CustomButton from "../custom-button/custom-button.component";
 
 const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100;
@@ -22,8 +23,9 @@ const StripeCheckoutButton = ({ price }) => {
       amount={priceForStripe}
       panelLabel="Pay Now"
       token={onToken}
-      stripeKey={publishableKey}
-    />
+      stripeKey={publishableKey}>
+        <CustomButton>DAME LA PASTA</CustomButton>
+        </StripeCheckout>
   );
 };
 

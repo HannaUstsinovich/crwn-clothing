@@ -1,5 +1,7 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
+
 import CustomButton from "../custom-button/custom-button.component";
 
 const StripeCheckoutButton = ({ price }) => {
@@ -8,8 +10,23 @@ const StripeCheckoutButton = ({ price }) => {
     "pk_test_51JPC3UHY05o3XMbinGXNLPfnoM7Wc5qNCpx6q6jKM9jgBinq15N2qHmkzAiiBPhYOEbNoPb1ksOEOjrvfoO8FlV900cGX4eT8d";
 
   const onToken = (token) => {
-    console.log(token);
-    alert("Payment Successful");
+    axios({
+      url: "payment",
+      method: "post",
+      data: {
+        amount: priceForStripe,
+        token,
+      },
+    })
+      .then((response) => {
+        alert("Payment successful");
+      })
+      .catch((error) => {
+        console.log("Payment error: ", JSON.parse(error));
+        alert(
+          "There was an issue with your payment. Please ensure you use a valid credit card."
+        );
+      });
   };
 
   return (
@@ -23,9 +40,10 @@ const StripeCheckoutButton = ({ price }) => {
       amount={priceForStripe}
       panelLabel="Pay Now"
       token={onToken}
-      stripeKey={publishableKey}>
-        <CustomButton>DAME LA PASTA</CustomButton>
-        </StripeCheckout>
+      stripeKey={publishableKey}
+    >
+      <CustomButton>DAME LA PASTA</CustomButton>
+    </StripeCheckout>
   );
 };
 

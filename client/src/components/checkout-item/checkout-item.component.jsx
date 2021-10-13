@@ -14,11 +14,11 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
 
   return (
     <div className="checkout-item">
-      <div className="image-container">
+      <div className="image-container flex-basis-23">
         <img src={imageUrl} alt="item" />
       </div>
-      <span className="name">{name}</span>
-      <span className="quantity">
+      <span className="name flex-basis-23">{name}</span>
+      <span className="quantity flex-basis-22">
         <div className="arrow" onClick={() => removeItem(cartItem)}>
           &#10094;
         </div>
@@ -27,8 +27,8 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
           &#10095;
         </div>
       </span>
-      <span className="price">{price}</span>
-      <div className="remove-button" onClick={() => clearItem(cartItem)}>
+      <span className="price flex-basis-22">{price}</span>
+      <div className="remove-button flex-basis-10" onClick={() => clearItem(cartItem)}>
         &#10005;
       </div>
     </div>

@@ -26,6 +26,11 @@
       opacity: 0.9;
       min-width: unset;
       padding: 0 10px;
+      top: 280px;
+    }
+
+    @media screen and (max-width: 400px) {
+      top: 210px;
     }
   }
 
@@ -42,6 +47,7 @@
 
   @media screen and (max-width: 800px) {
     width: 45vw;
+    height: 400px;
 
     &:hover {
       .image {
@@ -54,6 +60,10 @@
     }
   }
 
+  @media screen and (max-width: 400px) {
+    height: 300px;
+  }
+
   .collection-footer {
     width: 100%;
     height: 5%;
@@ -62,12 +72,7 @@
     font-size: 18px;
 
     .name {
-      width: 90%;
       margin-bottom: 15px;
-    }
-
-    .price {
-      width: 10%;
     }
   }
 }

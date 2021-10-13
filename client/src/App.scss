@@ -1,7 +1,7 @@
 body {
   font-family: "Open Sans Condensed";
   padding: 20px 40px;
-  
+
   @media screen and (max-width: 800px) {
     padding: 10px;
   }
@@ -14,4 +14,16 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.flex-basis-10 {
+  flex-basis: 10%;
+}
+
+.flex-basis-22 {
+  flex-basis: 22%;
+}
+
+.flex-basis-23 {
+  flex-basis: 23%;
 }
